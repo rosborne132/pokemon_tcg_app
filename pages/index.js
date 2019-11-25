@@ -4,7 +4,7 @@ import Nav from '../src/components/nav'
 import SearchInput from "../src/components/SearchInput/SearchInput"
 
 const Home = () => (
-  <div>
+  <div className="body">
     <Head>
       <title>Home</title>
       <link rel="icon" href="/favicon.ico" />
@@ -16,8 +16,12 @@ const Home = () => (
       <SearchInput />
     </div>
 
-    <style jsx>{`
-    
+    <style jsx>{`      
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     `}</style>
   </div>
 )
