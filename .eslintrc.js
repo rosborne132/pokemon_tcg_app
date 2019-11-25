@@ -21,5 +21,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    "react/react-in-jsx-scope": "off",
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-filename-extension": "off",
+    "max-len": ["error", 150]
   },
 };

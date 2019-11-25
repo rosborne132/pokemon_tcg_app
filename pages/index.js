@@ -1,29 +1,28 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../src/components/nav'
-import SearchInput from "../src/components/SearchInput/SearchInput"
+import React from 'react';
+import Head from 'next/head';
+import SearchInput from '../src/components/SearchInput/SearchInput';
 
 const Home = () => (
-  <div className="body">
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+    <div className="body">
+        <Head>
+            <title>Home</title>
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-    <Nav />
+        <div className="hero">
+            <SearchInput />
+        </div>
 
-    <div className="hero">
-      <SearchInput />
-    </div>
-
-    <style jsx>{`      
+        <style jsx>
+            {`      
       .hero {
         display: flex;
         align-items: center;
         justify-content: center;
       }
-    `}</style>
-  </div>
-)
+    `}
+        </style>
+    </div>
+);
 
-export default Home
+export default Home;
