@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import SearchSuggestions from './SearchSuggestions/SearchSuggestions';
 
-const SearchInput = () => {
+const SearchInput = ({ queryName }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
+    const upperCaseStr = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
     const getInfo = async () => {
         const searchQuery = query.toLocaleLowerCase();
-        const { data: { sets } } = await axios.get(`https://api.pokemontcg.io/v1/sets?name=${searchQuery}`);
-        const newResults = sets.filter((result) => result.name.toLowerCase() !== searchQuery.trim());
+        const { data } = await axios.get(`https://api.pokemontcg.io/v1/${queryName}?name=${searchQuery}`);
+
+        const resultList = data[queryName].map((result) => result.name);
+        const resultKeys = Array.from(new Set(resultList));
+        const newResults = resultKeys.filter((result) => result.toLowerCase() !== searchQuery.trim());
 
         setResults([...newResults]);
     };
@@ -26,7 +32,7 @@ const SearchInput = () => {
     return (
         <span>
             <input
-                placeholder="Search Set..."
+                placeholder={`Search ${upperCaseStr(queryName)}...`}
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
             />
@@ -38,16 +44,29 @@ const SearchInput = () => {
             <style jsx>
                 {`
                 input {
+                    position:relative;  
                     border: 1px solid #000;
                     width: 250px;
                     height: 30px;
                     text-indent: 10px;
                     font-size: 17px;
                 }
+
+                span {
+                    padding: 40px;
+                }
             `}
             </style>
         </span>
     );
+};
+
+SearchInput.propTypes = {
+    queryName: PropTypes.string,
+};
+
+SearchInput.defaultProps = {
+    queryName: '',
 };
 
 export default SearchInput;

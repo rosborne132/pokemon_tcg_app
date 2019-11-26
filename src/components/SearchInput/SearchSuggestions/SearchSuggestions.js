@@ -1,19 +1,16 @@
 import PropTypes from 'prop-types';
 
-const SearchSuggestions = ({ query, results, setQuery }) => {
-    const filteredList = results.filter((result) => {
-        const searchQuery = query.toLowerCase();
-        return result.name.toLowerCase().includes(searchQuery) && result.name.toLowerCase()[0] === query.toLowerCase()[0];
-    });
-
-    const listResults = filteredList.map((result, index) => (
-        <div role="menuitem" tabIndex={index} key={result.code} onClick={() => setQuery(result.name)} onKeyDown={() => setQuery(result.name)}>
-            {result.name}
+const SearchSuggestions = ({ results, setQuery }) => {
+    const listResults = results.map((result, index) => (
+        <div role="menuitem" tabIndex={index} key={result} onClick={() => setQuery(result)} onKeyDown={() => setQuery(result)}>
+            {result}
             <style jsx>
                 {`
                     div {
                         padding: 5px 0;
+                        width: 252px;
                         font-size: 17px;
+                   
                     }
 
                     div:hover {
@@ -31,13 +28,12 @@ const SearchSuggestions = ({ query, results, setQuery }) => {
             <style jsx>
                 {`
                     div {
+                        position: absolute;
                         width: inherit;
                         border-right: 1px solid #000;
                         border-left: 1px solid #000;
                         border-bottom: 1px solid #000;
                         text-indent: 11px;
-                        padding: 0;
-                        margin: 0;
                     }
                 `}
             </style>
@@ -46,13 +42,11 @@ const SearchSuggestions = ({ query, results, setQuery }) => {
 };
 
 SearchSuggestions.propTypes = {
-    query: PropTypes.string,
-    results: PropTypes.arrayOf(PropTypes.object),
+    results: PropTypes.arrayOf(PropTypes.string),
     setQuery: PropTypes.func,
 };
 
 SearchSuggestions.defaultProps = {
-    query: '',
     results: [],
     setQuery: () => {},
 };

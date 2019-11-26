@@ -10,17 +10,19 @@ const Home = () => (
         </Head>
 
         <div className="hero">
-            <SearchInput />
+            <SearchInput queryName="sets" />
+            <SearchInput queryName="cards" />
         </div>
 
         <style jsx>
             {`      
-      .hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    `}
+                .hero {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+    ` }
         </style>
     </div>
 );
