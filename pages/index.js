@@ -1,30 +1,39 @@
-import React from 'react';
-import Head from 'next/head';
-import SearchInput from '../src/components/SearchInput/SearchInput';
+import Layout from '../src/components/Layout/Layout'
+import { useFetchUser } from '../lib/user'
 
-const Home = () => (
-    <div className="body">
-        <Head>
-            <title>Home</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
+const Home = () => {
+    const { user, loading } = useFetchUser()
 
-        <div className="hero">
-            <SearchInput queryName="sets" />
-            <SearchInput queryName="cards" />
-        </div>
+    console.log(user)
 
-        <style jsx>
-            {`      
-                .hero {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100%;
-                }
-    ` }
-        </style>
-    </div>
-);
+    return (
+        <Layout user={user} loading={loading}>
+            <h1>Next.js and Auth0 Example</h1>
 
-export default Home;
+            {loading && <p>Loading login info...</p>}
+
+            {!loading && !user && (
+                <>
+                    <p>
+                        To test the login click in <i>Login</i>
+                    </p>
+                    <p>
+                        Once you have logged in you should be able to click in{' '}
+                        <i>Profile</i> and <i>Logout</i>
+                    </p>
+                </>
+            )}
+
+            {user && (
+                <>
+                    <h4>Rendered user info on the client</h4>
+                    <img src={user.picture} alt="user picture" />
+                    <p>nickname: {user.nickname}</p>
+                    <p>name: {user.name}</p>
+                </>
+            )}
+        </Layout>
+    )
+}
+
+export default Home

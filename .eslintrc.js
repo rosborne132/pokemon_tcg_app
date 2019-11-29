@@ -22,6 +22,7 @@ module.exports = {
   ],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "sx-a11y/anchor-is-valid": "off",
     "indent": ["error", 4],
     "react/jsx-indent": ["error", 4],
     "react/jsx-indent-props": ["error", 4],
