@@ -25,12 +25,12 @@ const Home = () => {
             )}
 
             {user && (
-                <>
+                <div className="b bs_m br_m">
                     <h4>Rendered user info on the client</h4>
                     <img src={user.picture} alt="user picture" />
-                    <p>nickname: {user.nickname}</p>
-                    <p>name: {user.name}</p>
-                </>
+                    <p><span className="fw_b">nickname: </span>{user.nickname}</p>
+                    <p><span className="fw_b">name: </span>{user.name}</p>
+                </div>
             )}
         </Layout>
     )

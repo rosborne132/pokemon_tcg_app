@@ -1,32 +1,26 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-const Header = ({ user, loading }) => {
-    return (
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <Link href="/">
-                            <a>Home</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about">
-                            <a>About</a>
-                        </Link>
-                    </li>
-                    {!loading
+const Header = ({ user, loading }) => (
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/about">
+                        <a>About</a>
+                    </Link>
+                </li>
+                {!loading
                     && (user ? (
                         <>
                             <li>
-                                <Link href="/profile">
-                                    <a>Client-rendered profile</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/advanced/ssr-profile">
-                                    <a>Server rendered profile (advanced)</a>
+                                <Link href="/ssr-profile">
+                                    <a>Server rendered profile</a>
                                 </Link>
                             </li>
                             <li>
@@ -42,11 +36,11 @@ const Header = ({ user, loading }) => {
                             </Link>
                         </li>
                     ))}
-                </ul>
-            </nav>
+            </ul>
+        </nav>
 
-            <style jsx>
-                {`
+        <style jsx>
+            {`
                 header {
                 padding: 0.2rem;
                 color: #fff;
@@ -80,10 +74,9 @@ const Header = ({ user, loading }) => {
                 background: none;
                 }
             `}
-            </style>
-        </header>
-    );
-}
+        </style>
+    </header>
+);
 
 Header.propTypes = {
     user: PropTypes.obj,
@@ -92,7 +85,7 @@ Header.propTypes = {
 
 Header.defaultProps = {
     user: {},
-    loading: false
+    loading: false,
 };
 
 export default Header;
