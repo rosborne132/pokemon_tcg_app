@@ -51,43 +51,43 @@ const Meta = () => (
                 font-weight: 700;
             }
 
-            bs_s {
+            .bs_s {
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             }
 
-            bs_m {
+            .bs_m {
                 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             }
 
-            bs_l {
+            .bs_l {
                 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             }
 
-            bs_xl {
+            .bs_xl {
                 box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
 
-            bs_xxl {
+            .bs_xxl {
                 box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             }
 
-            br_s {
+            .br_s {
                 border-radius: .125rem;
             }
 
-            br_m {
+            .br_m {
                 border-radius: .25rem;
             }
 
-            br_l {
+            .br_l {
                 border-radius: .5rem;
             }
 
-            br_f {
+            .br_f {
                 border-radius: 9999px;
             }
 
-            b {
+            .b {
                 1px solid #000;
             }
         `}

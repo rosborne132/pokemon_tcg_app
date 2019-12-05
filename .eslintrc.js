@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'airbnb',
+    'airbnb'
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,8 +21,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    "consistent-return": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "sx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "indent": ["error", 4],
     "react/jsx-indent": ["error", 4],
     "react/jsx-indent-props": ["error", 4],

@@ -1,91 +1,85 @@
+import { useContext } from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
+import { UserContext } from '../../context/UserContext';
 
-const Header = ({ user, loading }) => (
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <Link href="/">
-                        <a>Home</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/about">
-                        <a>About</a>
-                    </Link>
-                </li>
-                {!loading
-                    && (user ? (
-                        <>
+const Header = () => {
+    const { loading, user } = useContext(UserContext);
+    return (
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <Link href="/">
+                            <a>Home</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/about">
+                            <a>About</a>
+                        </Link>
+                    </li>
+                    {!loading
+                        && (user ? (
+                            <>
+                                <li>
+                                    <Link href="/ssr-profile">
+                                        <a>Server rendered profile</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/api/logout">
+                                        <a>Logout</a>
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
                             <li>
-                                <Link href="/ssr-profile">
-                                    <a>Server rendered profile</a>
+                                <Link href="/api/login">
+                                    <a>Login</a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/api/logout">
-                                    <a>Logout</a>
-                                </Link>
-                            </li>
-                        </>
-                    ) : (
-                        <li>
-                            <Link href="/api/login">
-                                <a>Login</a>
-                            </Link>
-                        </li>
-                    ))}
-            </ul>
-        </nav>
+                        ))}
+                </ul>
+            </nav>
 
-        <style jsx>
-            {`
-                header {
-                padding: 0.2rem;
-                color: #fff;
-                background-color: #333;
-                }
-                nav {
-                max-width: 42rem;
-                margin: 1.5rem auto;
-                }
-                ul {
-                display: flex;
-                list-style: none;
-                margin-left: 0;
-                padding-left: 0;
-                }
-                li {
-                margin-right: 1rem;
-                }
-                li:nth-child(2) {
-                margin-right: auto;
-                }
-                a {
-                color: #fff;
-                text-decoration: none;
-                }
-                button {
-                font-size: 1rem;
-                color: #fff;
-                cursor: pointer;
-                border: none;
-                background: none;
-                }
-            `}
-        </style>
-    </header>
-);
-
-Header.propTypes = {
-    user: PropTypes.obj,
-    loading: PropTypes.bool,
-};
-
-Header.defaultProps = {
-    user: {},
-    loading: false,
+            <style jsx>
+                {`
+                    header {
+                    padding: 0.2rem;
+                    color: #fff;
+                    background-color: #333;
+                    }
+                    nav {
+                    max-width: 42rem;
+                    margin: 1.5rem auto;
+                    }
+                    ul {
+                    display: flex;
+                    list-style: none;
+                    margin-left: 0;
+                    padding-left: 0;
+                    }
+                    li {
+                    margin-right: 1rem;
+                    }
+                    li:nth-child(2) {
+                    margin-right: auto;
+                    }
+                    a {
+                    color: #fff;
+                    text-decoration: none;
+                    }
+                    button {
+                    font-size: 1rem;
+                    color: #fff;
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                    }
+                `}
+            </style>
+        </header>
+    );
 };
 
 export default Header;
