@@ -15,17 +15,10 @@ const Home = () => {
                 {!loading && !user && (
                     <>
                         <p>
-                            To test the login click in
-                            {' '}
-                            <i>Login</i>
+                            {`To test the login click in ${<i>Login</i>}`}
                         </p>
                         <p>
-                            Once you have logged in you should be able to click in
-                            {' '}
-                            <i>Profile</i>
-                            {' '}
-and
-                            <i>Logout</i>
+                            {`Once you have logged in you should be able to click in ${<i>Profile</i>} and ${<i>Logout</i>}`}
                         </p>
                     </>
                 )}

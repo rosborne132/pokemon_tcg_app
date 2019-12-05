@@ -11,11 +11,11 @@ const Profile = ({ user }) => (
             <h3>Profile (server rendered)</h3>
             <img src={user.picture} alt="user profile" />
             <p>
-nickname:
+                <span className="fw_b">nickname: </span>
                 {user.nickname}
             </p>
             <p>
-name:
+                <span className="fw_b">name: </span>
                 {user.name}
             </p>
         </div>
@@ -38,7 +38,6 @@ Profile.getInitialProps = async ({ req, res }) => {
     const cookie = req && req.headers.cookie;
     const user = await fetchUser(cookie);
 
-    // A redirect is needed to authenticate to Auth0
     if (!user) {
         if (typeof window === 'undefined') {
             res.writeHead(302, {
