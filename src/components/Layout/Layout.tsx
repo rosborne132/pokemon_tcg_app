@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
 import Meta from '../Meta/Meta';
 
-const Layout = ({ children }) => (
+const Layout: React.FC = ({ children }) => (
     <>
         <Meta />
         <Header />

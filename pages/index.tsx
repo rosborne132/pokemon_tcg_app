@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Layout from '../src/components/Layout/Layout';
 import UserContextProvider, { UserContext } from '../src/context/UserContext';
 
-const Home = () => {
+const Home: React.FC = () => {
     const { loading, user } = useContext(UserContext);
 
     return (

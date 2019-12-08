@@ -1,6 +1,9 @@
-import PropTypes from 'prop-types';
+type Props = {
+    results: string[]
+    setQuery: (result) => void
+}
 
-const SearchSuggestions = ({ results, setQuery }) => {
+const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }) => {
     const listResults = results.map((result, index) => (
         <div role="menuitem" tabIndex={index} key={result} onClick={() => setQuery(result)} onKeyDown={() => setQuery(result)}>
             {result}
@@ -39,16 +42,6 @@ const SearchSuggestions = ({ results, setQuery }) => {
             </style>
         </div>
     );
-};
-
-SearchSuggestions.propTypes = {
-    results: PropTypes.arrayOf(PropTypes.string),
-    setQuery: PropTypes.func,
-};
-
-SearchSuggestions.defaultProps = {
-    results: [],
-    setQuery: () => {},
 };
 
 export default SearchSuggestions;

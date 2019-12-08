@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { UserContext } from '../../context/UserContext';
 
-const Header = () => {
+const Header: React.FC = () => {
     const { loading, user } = useContext(UserContext);
     return (
         <header>

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Normalize } from 'styled-normalize';
 
-const Meta = () => (
+const Meta: React.FC = () => (
     <div>
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />

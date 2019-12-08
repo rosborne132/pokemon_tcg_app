@@ -30,10 +30,6 @@
     "*.js": [
       "yarn lint",
       "git add"
-    ],
-    "*.tsx": [
-      "yarn lint",
-      "git add"
     ]
   },
   "devDependencies": {
