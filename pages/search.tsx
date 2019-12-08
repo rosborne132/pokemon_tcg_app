@@ -1,8 +1,7 @@
-import React from 'react';
 import Head from 'next/head';
 import SearchInput from '../src/components/SearchInput/SearchInput';
 
-const Home = () => (
+const Search: React.FC = () => (
     <div className="body">
         <Head>
             <title>Home</title>
@@ -27,4 +26,4 @@ const Home = () => (
     </div>
 );
 
-export default Home;
+export default Search;

@@ -1,7 +1,17 @@
-import React from 'react';
+import NextPage from 'net'
 import auth0 from '../lib/auth0';
 import { fetchUser } from '../lib/user';
 import Layout from '../src/components/Layout/Layout';
+
+type User = {
+    name: string
+    nickname: string
+    picture: string
+}
+
+type Props = {
+    user: User
+}
 
 const Profile = ({ user }) => (
     <Layout>
