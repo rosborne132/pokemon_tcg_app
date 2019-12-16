@@ -23,7 +23,7 @@ const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }) => {
                 `}
             </style>
         </div>
-    ));
+    ))
 
     return (
         <div>
@@ -41,7 +41,7 @@ const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }) => {
                 `}
             </style>
         </div>
-    );
-};
+    )
+}
 
-export default SearchSuggestions;
+export default SearchSuggestions

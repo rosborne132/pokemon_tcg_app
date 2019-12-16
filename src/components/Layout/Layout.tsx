@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
-import Meta from '../Meta/Meta';
+import Header from '../Header/Header'
+import Meta from '../Meta/Meta'
 
 const Layout: React.FC = ({ children }) => (
     <>
@@ -9,6 +9,6 @@ const Layout: React.FC = ({ children }) => (
             <div className="container">{children}</div>
         </main>
     </>
-);
+)
 
-export default Layout;
+export default Layout

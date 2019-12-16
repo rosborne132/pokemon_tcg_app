@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import { Normalize } from 'styled-normalize';
+import Head from 'next/head'
+import { Normalize } from 'styled-normalize'
 
 const Meta: React.FC = () => (
     <div>
@@ -193,6 +193,6 @@ const Meta: React.FC = () => (
         `}
         </style>
     </div>
-);
+)
 
-export default Meta;
+export default Meta

@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import Link from 'next/link';
-import { UserContext } from '../../context/UserContext';
+import { useContext } from 'react'
+import Link from 'next/link'
+import { UserContext } from '../../context/UserContext'
 
 const Header: React.FC = () => {
-    const { loading, user } = useContext(UserContext);
+    const { loading, user } = useContext(UserContext)
     return (
         <header>
             <nav>
@@ -79,7 +79,7 @@ const Header: React.FC = () => {
                 `}
             </style>
         </header>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header
