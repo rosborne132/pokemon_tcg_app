@@ -24,15 +24,24 @@
     ],
     "rules": {
         "consistent-return": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "indent": ["error", 4],
+        "max-len": ["error", 150],
+        "no-tabs": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "react/jsx-props-no-spreading": "off",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
-        "jsx-a11y/anchor-is-valid": "off",
-        "indent": ["error", 4],
-        "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4],
-        "react/jsx-filename-extension": "off",
-        "max-len": ["error", 150],
-        "no-tabs": "off"
+        "semi": [2, "never"]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "paths": ["./src", "./pages"]
+            }
+        }
     }
 }

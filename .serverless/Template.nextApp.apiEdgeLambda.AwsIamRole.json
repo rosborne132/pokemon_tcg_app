@@ -1,0 +1,12 @@
+{
+  "name": "ltq78fs-o0fnits",
+  "arn": "arn:aws:iam::280138148799:role/ltq78fs-o0fnits",
+  "service": [
+    "lambda.amazonaws.com",
+    "edgelambda.amazonaws.com"
+  ],
+  "policy": {
+    "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+  },
+  "region": "us-east-1"
+}

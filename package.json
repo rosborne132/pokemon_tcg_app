@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "lint:src": "eslint --fix ./src",
-    "lint:pages": "eslint --fix ./pages",
+    "deploy": "npx serverless",
+    "lint:src": "eslint --fix './src/**/*.{ts,tsx}'",
+    "lint:pages": "eslint --fix './pages/**/*.{ts,tsx}'",
     "lint": "yarn run lint:src && yarn run lint:pages",
     "build": "next build",
     "start": "next start"
@@ -44,6 +45,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
+    "serverless-next.js": "^1.7.0",
     "styled-components": "^4.4.1",
     "typescript": "^3.7.3"
   }

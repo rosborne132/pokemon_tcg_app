@@ -1,0 +1,17 @@
+{
+  "name": "ltq78fs-lqejgm",
+  "hash": "JqPE+wf0turVtM+JVwIfVjGvESxP873wXIoZqcDz3Y4=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/Users/robertosborne/Desktop/Programming/Web Development/Thinkful/react/next/pokemon-tcg-app/.serverless_nextjs/default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs10.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::280138148799:role/ltq78fs-ouaxi8"
+  },
+  "arn": "arn:aws:lambda:us-east-1:280138148799:function:ltq78fs-lqejgm",
+  "region": "us-east-1"
+}

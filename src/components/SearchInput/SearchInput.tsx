@@ -6,7 +6,7 @@ type Props = {
     queryName: string
 }
 
-const SearchInput: React.FC<Props> = ({ queryName = "" }) => {
+const SearchInput: React.FC<Props> = ({ queryName = '' }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
@@ -18,7 +18,7 @@ const SearchInput: React.FC<Props> = ({ queryName = "" }) => {
 
         const resultList: string[] = data[queryName].map((result) => result.name);
         const resultKeys: string[] = Array.from(new Set(resultList));
-        const newResults: string[] = resultKeys.filter(result => result.toLowerCase() !== searchQuery.trim());
+        const newResults: string[] = resultKeys.filter((result) => result.toLowerCase() !== searchQuery.trim());
 
         setResults([...newResults]);
     };

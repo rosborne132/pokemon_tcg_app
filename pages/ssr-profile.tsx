@@ -1,7 +1,6 @@
-import NextPage from 'next'
-import auth0 from '../lib/auth0';
-import { fetchUser } from '../lib/user';
-import Layout from '../src/components/Layout/Layout';
+import auth0 from '../lib/auth0'
+import { fetchUser } from '../lib/user'
+import Layout from '../src/components/Layout/Layout'
 
 // type User = {
 //     name: string
@@ -30,36 +29,36 @@ const Profile = ({ user }) => (
             </p>
         </div>
     </Layout>
-);
+)
 
 Profile.getInitialProps = async ({ req, res }) => {
     if (typeof window === 'undefined') {
-        const { user } = await auth0.getSession(req);
+        const { user } = await auth0.getSession(req)
         if (!user) {
             res.writeHead(302, {
                 Location: '/api/login',
-            });
-            res.end();
-            return;
+            })
+            res.end()
+            return
         }
-        return { user };
+        return { user }
     }
 
-    const cookie = req && req.headers.cookie;
-    const user = await fetchUser(cookie);
+    const cookie = req && req.headers.cookie
+    const user = await fetchUser(cookie)
 
     if (!user) {
         if (typeof window === 'undefined') {
             res.writeHead(302, {
                 Location: '/api/login',
-            });
-            return res.end();
+            })
+            return res.end()
         }
 
-        window.location.href = '/api/login';
+        window.location.href = '/api/login'
     }
 
-    return { user };
-};
+    return { user }
+}
 
-export default Profile;
+export default Profile

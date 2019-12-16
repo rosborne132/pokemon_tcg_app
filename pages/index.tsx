@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import Layout from '../src/components/Layout/Layout';
-import UserContextProvider, { UserContext } from '../src/context/UserContext';
+import { useContext } from 'react'
+import Layout from '../src/components/Layout/Layout'
+import UserContextProvider, { UserContext } from '../src/context/UserContext'
 
 const Home: React.FC = () => {
-    const { loading, user } = useContext(UserContext);
+    const { loading, user } = useContext(UserContext)
 
     return (
         <UserContextProvider>
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
                 )}
             </Layout>
         </UserContextProvider>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

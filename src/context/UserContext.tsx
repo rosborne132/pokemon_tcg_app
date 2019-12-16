@@ -14,9 +14,9 @@ type initialValues = {
 
 const initialValues = {
     user: {
-        name: "",
-        nickname: "",
-        picture: ""
+        name: '',
+        nickname: '',
+        picture: '',
     },
     loading: false,
 };

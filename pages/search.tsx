@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import SearchInput from '../src/components/SearchInput/SearchInput';
+import Head from 'next/head'
+import SearchInput from '../src/components/SearchInput/SearchInput'
 
 const Search: React.FC = () => (
     <div className="body">
@@ -24,6 +24,6 @@ const Search: React.FC = () => (
     ` }
         </style>
     </div>
-);
+)
 
-export default Search;
+export default Search
