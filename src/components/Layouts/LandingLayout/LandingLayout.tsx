@@ -1,5 +1,5 @@
-import LandingHeader from '../Headers/LandingHeader/LandingHeader'
-import Meta from '../Meta/Meta'
+import LandingHeader from '../../Headers/LandingHeader/LandingHeader'
+import Meta from '../../Meta/Meta'
 
 const LandingLayout: React.FC = ({ children }) => (
     <>

@@ -1,6 +1,5 @@
-import auth0 from '../lib/auth0'
-import { fetchUser } from '../lib/user'
-import AppLayout from '../src/components/Layouts/AppLayout/AppLayout'
+import auth0 from '../../lib/auth0'
+import AppLayout from '../../src/components/Layouts/AppLayout/AppLayout'
 
 const App = ({ user }) => (
     <AppLayout>
@@ -36,22 +35,6 @@ App.getInitialProps = async ({ req, res }) => {
 
         return { user }
     }
-
-    const cookie = req && req.headers.cookie
-    const user = await fetchUser(cookie)
-
-    if (!user) {
-        if (typeof window === 'undefined') {
-            res.writeHead(302, {
-                Location: '/api/login',
-            })
-            return res.end()
-        }
-
-        window.location.href = '/api/login'
-    }
-
-    return { user }
 }
 
 export default App

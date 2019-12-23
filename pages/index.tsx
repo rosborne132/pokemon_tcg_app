@@ -1,4 +1,4 @@
-import LandingLayout from '../src/components/LandingLayout/LandingLayout'
+import LandingLayout from '../src/components/Layouts/LandingLayout/LandingLayout'
 
 const Home: React.FC = () => (
     <LandingLayout>

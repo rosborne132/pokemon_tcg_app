@@ -1,9 +1,8 @@
-import auth0 from '../lib/auth0'
-import { fetchUser } from '../lib/user'
-import LandingLayout from '../src/components/LandingLayout/LandingLayout'
+import auth0 from '../../lib/auth0'
+import AppLayout from '../../src/components/Layouts/AppLayout/AppLayout'
 
 const Profile = ({ user }) => (
-    <LandingLayout>
+    <AppLayout>
         <h1>Profile</h1>
 
         <div>
@@ -18,7 +17,7 @@ const Profile = ({ user }) => (
                 {user.name}
             </p>
         </div>
-    </LandingLayout>
+    </AppLayout>
 )
 
 Profile.getInitialProps = async ({ req, res }) => {
@@ -37,22 +36,6 @@ Profile.getInitialProps = async ({ req, res }) => {
 
         return { user }
     }
-
-    const cookie = req && req.headers.cookie
-    const user = await fetchUser(cookie)
-
-    if (!user) {
-        if (typeof window === 'undefined') {
-            res.writeHead(302, {
-                Location: '/api/login',
-            })
-            return res.end()
-        }
-
-        window.location.href = '/api/login'
-    }
-
-    return { user }
 }
 
 export default Profile

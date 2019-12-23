@@ -1,23 +1,28 @@
 import { memo } from 'react'
 import Link from 'next/link'
 
-const LandingHeader: React.FC = () => (
+const AppHeader: React.FC = () => (
     <header>
         <nav>
             <ul>
                 <li>
-                    <Link href="/">
+                    <Link href="/app">
                         <a>Home</a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/about">
-                        <a>About</a>
+                    <Link href="/app/search">
+                        <a>Search</a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/api/login">
-                        <a>Login</a>
+                    <Link href="/app/ssr-profile">
+                        <a>Profile</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/api/logout">
+                        <a>Logout</a>
                     </Link>
                 </li>
             </ul>
@@ -62,4 +67,4 @@ const LandingHeader: React.FC = () => (
     </header>
 )
 
-export default memo(LandingHeader)
+export default memo(AppHeader)
