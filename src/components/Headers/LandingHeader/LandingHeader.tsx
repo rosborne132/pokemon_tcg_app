@@ -1,24 +1,28 @@
-import { useContext } from 'react'
+import { memo } from 'react'
+// import { useContext, memo } from 'react'
 import Link from 'next/link'
-import { UserContext } from '../../context/UserContext'
+// import { UserContext } from '../../../context/UserContext'
 
-const Header: React.FC = () => {
-    const { loading, user } = useContext(UserContext)
-    return (
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <Link href="/">
-                            <a>Home</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about">
-                            <a>About</a>
-                        </Link>
-                    </li>
-                    {!loading
+const LandingHeader: React.FC = () => (
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/about">
+                        <a>About</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/api/login">
+                        <a>Login</a>
+                    </Link>
+                </li>
+                {/* {!loading
                         && (user ? (
                             <>
                                 <li>
@@ -38,12 +42,12 @@ const Header: React.FC = () => {
                                     <a>Login</a>
                                 </Link>
                             </li>
-                        ))}
-                </ul>
-            </nav>
+                        ))} */}
+            </ul>
+        </nav>
 
-            <style jsx>
-                {`
+        <style jsx>
+            {`
                     header {
                     padding: 0.2rem;
                     color: #fff;
@@ -77,9 +81,9 @@ const Header: React.FC = () => {
                     background: none;
                     }
                 `}
-            </style>
-        </header>
-    )
-}
+        </style>
+    </header>
+)
 
-export default Header
+
+export default memo(LandingHeader)

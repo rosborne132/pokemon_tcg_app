@@ -1,13 +1,13 @@
-import Layout from '../src/components/Layout/Layout'
+import LandingLayout from '../src/components/LandingLayout/LandingLayout'
 
 const About: React.FC = () => (
-    <Layout>
+    <LandingLayout>
         <h1>About</h1>
         <p>
-            {`This is the about page, navigating between this page and Home is always pretty fast. However, 
-            when you navigate to the Profile page it takes more time because it uses SSR to fetch the user first;`}
+            This is the about page, navigating between this page and Home is always pretty fast. However,
+            when you navigate to the Profile page it takes more time because it uses SSR to fetch the user first
         </p>
-    </Layout>
+    </LandingLayout>
 )
 
 export default About

@@ -1,10 +1,10 @@
-import Header from '../Header/Header'
-import Meta from '../Meta/Meta'
+import LandingHeader from '../../Headers/LandingHeader/LandingHeader'
+import Meta from '../../Meta/Meta'
 
 const Layout: React.FC = ({ children }) => (
     <>
         <Meta />
-        <Header />
+        <LandingHeader />
         <main>
             <div className="container">{children}</div>
         </main>

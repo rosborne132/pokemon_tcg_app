@@ -13,11 +13,7 @@ type initialValues = {
 }
 
 const initialValues = {
-    user: {
-        name: '',
-        nickname: '',
-        picture: '',
-    },
+    user: {} as User,
     loading: false,
 }
 

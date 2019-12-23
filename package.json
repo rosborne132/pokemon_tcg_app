@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "now": "next now",
     "deploy": "npx serverless",
     "lint:src": "eslint --fix './src/**/*.{ts,tsx}'",
     "lint:pages": "eslint --fix './pages/**/*.{ts,tsx}'",

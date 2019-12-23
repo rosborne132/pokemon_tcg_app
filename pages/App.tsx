@@ -1,13 +1,12 @@
 import auth0 from '../lib/auth0'
 import { fetchUser } from '../lib/user'
-import LandingLayout from '../src/components/LandingLayout/LandingLayout'
+import AppLayout from '../src/components/Layouts/AppLayout/AppLayout'
 
-const Profile = ({ user }) => (
-    <LandingLayout>
-        <h1>Profile</h1>
+const App = ({ user }) => (
+    <AppLayout>
+        <h1>App Home</h1>
 
         <div>
-            <h3>Profile (server rendered)</h3>
             <img src={user.picture} alt="user profile" />
             <p>
                 <span className="fw_b">nickname: </span>
@@ -18,10 +17,10 @@ const Profile = ({ user }) => (
                 {user.name}
             </p>
         </div>
-    </LandingLayout>
+    </AppLayout>
 )
 
-Profile.getInitialProps = async ({ req, res }) => {
+App.getInitialProps = async ({ req, res }) => {
     if (typeof window === 'undefined') {
         const data = await auth0.getSession(req)
 
@@ -55,4 +54,4 @@ Profile.getInitialProps = async ({ req, res }) => {
     return { user }
 }
 
-export default Profile
+export default App
