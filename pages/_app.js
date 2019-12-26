@@ -1,6 +1,7 @@
 import App from 'next/app'
 import Router from 'next/router'
 import { fetchUser } from '../lib/user'
+// import auth0 from '../lib/auth0'
 import UserContext from '../src/context/UserContext'
 
 class MyApp extends App {
@@ -11,6 +12,26 @@ class MyApp extends App {
             loading: false,
         }
     }
+
+    // static async getInitialProps({ ctx }) {
+    //     const { req, res } = ctx
+
+    //     if (typeof window === 'undefined') {
+    //         const data = await auth0.getSession(req)
+
+    //         if (data === null) {
+    //             res.writeHead(302, {
+    //                 Location: '/api/login',
+    //             })
+    //             res.end()
+    //             return
+    //         }
+
+    //         const { user } = data
+
+    //         return { user }
+    //     }
+    // }
 
     async componentDidMount() {
         this.setLoading(true)
