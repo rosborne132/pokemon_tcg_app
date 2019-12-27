@@ -1,4 +1,5 @@
 const dotenv = require('dotenv')
+const withCSS = require('@zeit/next-css')
 
 dotenv.config()
 
@@ -6,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withBundleAnalyzer({
+module.exports = withCSS(withBundleAnalyzer({
     env: {
         AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
         AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -20,4 +21,4 @@ module.exports = withBundleAnalyzer({
         SESSION_COOKIE_LIFETIME: 7200, // 2 hours
     },
     target: 'serverless',
-})
+}))
