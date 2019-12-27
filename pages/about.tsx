@@ -1,6 +1,6 @@
-import LandingLayout from '../src/components/Layouts/LandingLayout/LandingLayout'
+import { LandingLayout } from '../src/components/Elements'
 
-const About: React.FC = () => (
+const About: React.FC = (): JSX.Element => (
     <LandingLayout>
         <h1>About</h1>
         <p>

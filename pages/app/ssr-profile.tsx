@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import UserContext from '../../src/context/UserContext'
-import AppLayout from '../../src/components/Layouts/AppLayout/AppLayout'
+import { AppLayout } from '../../src/components/Elements'
 
-const Profile = () => {
+const Profile: React.FC = (): JSX.Element => {
     const { user } = useContext(UserContext)
 
     return (

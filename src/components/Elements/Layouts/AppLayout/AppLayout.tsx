@@ -1,7 +1,7 @@
 import AppHeader from '../../Headers/AppHeader/AppHeader'
-import Meta from '../../Meta/Meta'
+import Meta from '../../../Utilities'
 
-const Layout: React.FC = ({ children }) => (
+const Layout: React.FC = ({ children }): JSX.Element => (
     <>
         <Meta />
         <AppHeader />

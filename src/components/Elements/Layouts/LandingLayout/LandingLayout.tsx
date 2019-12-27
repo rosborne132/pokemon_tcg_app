@@ -1,7 +1,7 @@
 import LandingHeader from '../../Headers/LandingHeader/LandingHeader'
-import Meta from '../../Meta/Meta'
+import Meta from '../../../Utilities'
 
-const LandingLayout: React.FC = ({ children }) => (
+const LandingLayout: React.FC = ({ children }): JSX.Element => (
     <>
         <Meta />
         <LandingHeader />

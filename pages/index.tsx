@@ -1,6 +1,6 @@
-import LandingLayout from '../src/components/Layouts/LandingLayout/LandingLayout'
+import { LandingLayout } from '../src/components/Elements'
 
-const Home: React.FC = () => (
+const Home: React.FC = (): JSX.Element => (
     <LandingLayout>
         <h1>Landing Page</h1>
     </LandingLayout>

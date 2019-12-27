@@ -3,7 +3,7 @@ type Props = {
     setQuery: (result) => void
 }
 
-const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }) => {
+const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }): JSX.Element => {
     const listResults = results.map((result, index) => (
         <div role="menuitem" tabIndex={index} key={result} onClick={() => setQuery(result)} onKeyDown={() => setQuery(result)}>
             {result}

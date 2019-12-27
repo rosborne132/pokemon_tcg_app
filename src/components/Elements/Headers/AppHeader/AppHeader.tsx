@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import Link from 'next/link'
 
-const AppHeader: React.FC = () => (
+const AppHeader: React.FC = (): JSX.Element => (
     <header>
         <nav>
             <ul>

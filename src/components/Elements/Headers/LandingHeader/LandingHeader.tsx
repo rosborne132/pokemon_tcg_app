@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import Link from 'next/link'
 
-const LandingHeader: React.FC = () => (
+const LandingHeader: React.FC = (): JSX.Element => (
     <header>
         <nav>
             <ul>

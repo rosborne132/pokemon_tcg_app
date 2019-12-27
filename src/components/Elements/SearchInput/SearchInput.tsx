@@ -6,7 +6,7 @@ type Props = {
     queryName: string
 }
 
-const SearchInput: React.FC<Props> = ({ queryName = '' }) => {
+const SearchInput: React.FC<Props> = ({ queryName = '' }): JSX.Element => {
     const [query, setQuery] = useState('')
     const [results, setResults] = useState([])
 
