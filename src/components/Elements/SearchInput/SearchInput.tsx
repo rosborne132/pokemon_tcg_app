@@ -9,6 +9,7 @@ type Props = {
 const SearchInput: React.FC<Props> = ({ queryName = '' }): JSX.Element => {
     const [query, setQuery] = useState('')
     const [results, setResults] = useState([])
+    const [querySelected, setQuerySelected] = useState(false)
 
     const upperCaseStr = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 
@@ -36,29 +37,39 @@ const SearchInput: React.FC<Props> = ({ queryName = '' }): JSX.Element => {
         <span>
             <input
                 placeholder={`Search ${upperCaseStr(queryName)}...`}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                    setQuery(e.target.value)
+                    setQuerySelected(false)
+                }}
                 value={query}
             />
 
             { results.length
-                ? <SearchSuggestions results={results} setQuery={setQuery} />
+                ? (
+                    <SearchSuggestions
+                        results={results}
+                        setQuery={setQuery}
+                        querySelected={querySelected}
+                        setQuerySelected={setQuerySelected}
+                    />
+                )
                 : '' }
 
             <style jsx>
                 {`
-                input {
-                    position:relative;  
-                    border: 1px solid #000;
-                    width: 250px;
-                    height: 30px;
-                    text-indent: 10px;
-                    font-size: 17px;
-                }
+                    input {
+                        position:relative;  
+                        border: 1px solid #000;
+                        width: 250px;
+                        height: 30px;
+                        text-indent: 10px;
+                        font-size: 17px;
+                    }
 
-                span {
-                    padding: 40px;
-                }
-            `}
+                    span {
+                        padding: 40px;
+                    }
+                `}
             </style>
         </span>
     )

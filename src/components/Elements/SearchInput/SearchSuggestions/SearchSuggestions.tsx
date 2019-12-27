@@ -1,11 +1,27 @@
 type Props = {
-    results: string[]
+    results: string[],
+    querySelected: boolean,
+    setQuerySelected: (querySelected) => void,
     setQuery: (result) => void
 }
 
-const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }): JSX.Element => {
+const SearchSuggestions: React.FC<Props> = ({
+    results = [], setQuery, querySelected = false, setQuerySelected,
+}): JSX.Element => {
     const listResults = results.map((result, index) => (
-        <div role="menuitem" tabIndex={index} key={result} onClick={() => setQuery(result)} onKeyDown={() => setQuery(result)}>
+        <div
+            role="menuitem"
+            tabIndex={index}
+            key={result}
+            onClick={() => {
+                setQuerySelected(true)
+                setQuery(result)
+            }}
+            onKeyDown={() => {
+                setQuerySelected(true)
+                setQuery(result)
+            }}
+        >
             {result}
             <style jsx>
                 {`
@@ -13,11 +29,11 @@ const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }): JSX.Ele
                         padding: 5px 0;
                         width: 252px;
                         font-size: 17px;
-                   
+                        background-color: #fff;
+
                     }
 
                     div:hover {
-                        cursor: pointer;
                         background-color: #F8F8F8;
                     }
                 `}
@@ -27,7 +43,9 @@ const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }): JSX.Ele
 
     return (
         <div>
-            { listResults }
+            { !querySelected
+                ? listResults
+                : '' }
             <style jsx>
                 {`
                     div {
@@ -37,6 +55,10 @@ const SearchSuggestions: React.FC<Props> = ({ results = [], setQuery }): JSX.Ele
                         border-left: 1px solid #000;
                         border-bottom: 1px solid #000;
                         text-indent: 11px;
+                    }
+
+                    div:hover {
+                        cursor: pointer;
                     }
                 `}
             </style>
