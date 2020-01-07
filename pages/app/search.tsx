@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import useSWR from 'swr'
 import { AppLayout, SearchInput } from '../../src/components/Elements'
+import withApollo from '../../lib/apollo'
 
 type Card = {
     id: string,
@@ -50,4 +51,4 @@ const Search: React.FC = (): JSX.Element => {
     )
 }
 
-export default Search
+export default withApollo(Search)

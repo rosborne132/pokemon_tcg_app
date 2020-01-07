@@ -1,9 +1,20 @@
 import { useContext } from 'react'
+// import { useQuery } from '@apollo/react-hooks'
+// import gql from 'graphql-tag'
 import UserContext from '../../src/context/UserContext'
 import { AppLayout } from '../../src/components/Elements'
+import withApollo from '../../lib/apollo'
+
+// const HELLO_QUERY = gql`
+//     query HelloQuery {
+//         sayHello
+//     }
+// `
 
 const App: React.FC = (): JSX.Element => {
     const { user } = useContext(UserContext)
+
+    // const { data, loading } = useQuery(HELLO_QUERY)
 
     return (
         <AppLayout>
@@ -24,4 +35,4 @@ const App: React.FC = (): JSX.Element => {
     )
 }
 
-export default App
+export default withApollo(App)

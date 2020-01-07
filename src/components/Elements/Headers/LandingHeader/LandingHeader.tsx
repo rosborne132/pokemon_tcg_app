@@ -16,7 +16,7 @@ const LandingHeader: React.FC = (): JSX.Element => (
                     </Link>
                 </li>
                 <li>
-                    <Link href="/api/login">
+                    <Link href="/api/auth/login">
                         <a>Login</a>
                     </Link>
                 </li>

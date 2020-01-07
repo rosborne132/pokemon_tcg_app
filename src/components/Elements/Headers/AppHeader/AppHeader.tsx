@@ -21,7 +21,7 @@ const AppHeader: React.FC = (): JSX.Element => (
                     </Link>
                 </li>
                 <li>
-                    <Link href="/api/logout">
+                    <Link href="/api/auth/logout">
                         <a>Logout</a>
                     </Link>
                 </li>

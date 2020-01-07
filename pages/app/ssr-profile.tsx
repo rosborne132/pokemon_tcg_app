@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import UserContext from '../../src/context/UserContext'
 import { AppLayout } from '../../src/components/Elements'
+import withApollo from '../../lib/apollo'
 
 const Profile: React.FC = (): JSX.Element => {
     const { user } = useContext(UserContext)
@@ -25,4 +26,4 @@ const Profile: React.FC = (): JSX.Element => {
     )
 }
 
-export default Profile
+export default withApollo(Profile)
