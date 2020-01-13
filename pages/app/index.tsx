@@ -1,34 +1,38 @@
-import { useContext } from 'react'
-// import { useQuery } from '@apollo/react-hooks'
-// import gql from 'graphql-tag'
-import UserContext from '../../src/context/UserContext'
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 import { AppLayout } from '../../src/components/Elements'
 import withApollo from '../../lib/apollo'
 
-// const HELLO_QUERY = gql`
-//     query HelloQuery {
-//         sayHello
-//     }
-// `
+const GET_USER = gql`
+    query GetUser {
+        getUser{
+            name
+            nickname
+            picture
+        }
+    }
+`
 
 const App: React.FC = (): JSX.Element => {
-    const { user } = useContext(UserContext)
+    const { data } = useQuery(GET_USER)
 
-    // const { data, loading } = useQuery(HELLO_QUERY)
+    if (!data) return <div>Loading</div>
+
+    const { getUser: { name, nickname, picture } } = data
 
     return (
         <AppLayout>
             <h1>App Home</h1>
 
             <div>
-                <img src={user.picture} alt="user profile" />
+                <img src={picture} alt="profile" />
                 <p>
                     <span className="fw_b">nickname: </span>
-                    {user.nickname}
+                    {nickname}
                 </p>
                 <p>
                     <span className="fw_b">name: </span>
-                    {user.name}
+                    {name}
                 </p>
             </div>
         </AppLayout>

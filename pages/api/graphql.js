@@ -1,22 +1,24 @@
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer } from 'apollo-server-micro'
+import { mergeResolvers, mergeTypeDefs } from 'graphql-toolkit'
 
-const typeDefs = gql`
-    type Query {
-        sayHello: String
-    }
-`
+import userResolvers from '../../src/api/users/resolvers'
+import User from '../../src/api/users/Users.graphql'
 
-const resolvers = {
-    Query: {
-        sayHello: () => 'Hello',
-    },
-}
+const typeDefs = mergeTypeDefs([User])
 
-const apolloServer = new ApolloServer({ typeDefs, resolvers })
+const resolvers = mergeResolvers([userResolvers])
+
+const apolloServer = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: (request) => ({
+        ...request,
+    }),
+})
 
 export const config = {
     api: {
-        bodyParser: false,
+        bodyParser: process.env.NODE_ENV === 'production',
     },
 }
 
