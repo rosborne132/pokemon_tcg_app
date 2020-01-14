@@ -34,7 +34,8 @@
         "react/jsx-props-no-spreading": "off",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
-        "semi": [2, "never"]
+        "semi": [2, "never"],
+        "comma-dangle": "off"
     },
     "settings": {
         "import/resolver": {
