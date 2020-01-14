@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "now": "next now",
-    "deploy": "npx serverless",
+    "deploy": "serverless deploy",
     "lint:src": "eslint --fix './src/**/*.{ts,tsx}'",
     "lint:pages": "eslint --fix './pages/**/*.{ts,tsx}'",
     "lint": "yarn run lint:src && yarn run lint:pages",

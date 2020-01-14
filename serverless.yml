@@ -1,3 +1,37 @@
+org: rosborne132
+app: tcg-deck-builder
+service: tcg-deck-builder
+
 nextApp:
   component: "serverless-next.js"
   appUrl: "d1scehskzdam8f.cloudfront.net"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-west-2
+  environment:
+    DYNAMODB_TABLE: user-decks
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:Scan
+        - dynamodb:UpdateItem
+        - dynamodb:PutItem
+      Resource: "arn:aws:dynamodb:us-west-2:280138148799:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+resources:
+  Resources:
+    UserDecksTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
