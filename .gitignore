@@ -4,8 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.serverless
-.serverless_nextjs
 
 # testing
 /coverage
@@ -13,6 +11,8 @@
 # next.js
 /.next/
 /out/
+/.serverless
+/.serverless_nextjs
 
 # production
 /build
