@@ -6,9 +6,12 @@ import auth0 from '../../lib/auth0'
 import userResolvers from '../../src/api/users/resolvers'
 import User from '../../src/api/users/Users.graphql'
 
-const typeDefs = mergeTypeDefs([User])
+import deckResolvers from '../../src/api/decks/resolvers'
+import Deck from '../../src/api/decks/Decks.graphql'
 
-const resolvers = mergeResolvers([userResolvers])
+const typeDefs = mergeTypeDefs([User, Deck])
+
+const resolvers = mergeResolvers([userResolvers, deckResolvers])
 
 const apolloServer = new ApolloServer({
     typeDefs,

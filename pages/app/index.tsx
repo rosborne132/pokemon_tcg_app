@@ -3,28 +3,29 @@ import gql from 'graphql-tag'
 import { AppLayout } from '../../src/components/Elements'
 import withApollo from '../../lib/apollo'
 
-const GET_USER = gql`
-    query GetUser {
-        getUser{
-            name
-            nickname
-            picture
+const GET_USER_DECKS = gql`
+    query GetUserDecks {
+        getUserDecks {
+            username
+            deckname
+            cards
         }
     }
 `
 
 const App: React.FC = (): JSX.Element => {
-    const { data } = useQuery(GET_USER)
+    const { data } = useQuery(GET_USER_DECKS)
 
     if (!data) return <div>Loading</div>
 
-    const { getUser: { name, nickname, picture } } = data
+    // const { getUserDecks: { name, nickname, picture } } = data
+    console.log(data)
 
     return (
         <AppLayout>
             <h1>App Home</h1>
 
-            <div>
+            {/* <div>
                 <img src={picture} alt="profile" />
                 <p>
                     <span className="fw_b">nickname: </span>
@@ -34,7 +35,7 @@ const App: React.FC = (): JSX.Element => {
                     <span className="fw_b">name: </span>
                     {name}
                 </p>
-            </div>
+            </div> */}
         </AppLayout>
     )
 }

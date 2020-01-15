@@ -1,0 +1,9 @@
+type Deck {
+    username: String!
+    deckname: String!
+    cards: String!
+}
+
+type Query {
+    getUserDecks: Deck
+}
