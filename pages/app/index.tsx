@@ -7,8 +7,7 @@ const GET_USER_DECKS = gql`
     query GetUserDecks {
         getUserDecks {
             username
-            deckname
-            cards
+            deckId
         }
     }
 `

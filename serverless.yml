@@ -27,19 +27,12 @@ resources:
       Properties:
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
         AttributeDefinitions:
-          - AttributeName: username
+          - AttributeName: deckId
             AttributeType: S
-          # - AttributeName: deckname
-          #   AttributeType: S
-          # - AttributeName: cards
-          #   AttributeType: S
         KeySchema:
-          - AttributeName: username
+          - AttributeName: deckId
             KeyType: HASH
-          # - AttributeName: deckname
-          #   KeyType: HASH
-          # - AttributeName: cards
-          #   KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        BillingMode: PROVISIONED

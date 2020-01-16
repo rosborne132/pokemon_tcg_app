@@ -1,9 +1,8 @@
 type Deck {
     username: String!
-    deckname: String!
-    cards: String!
+    deckId: String!
 }
 
 type Query {
-    getUserDecks: Deck
+    getUserDecks: [Deck]
 }
