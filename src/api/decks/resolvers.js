@@ -1,16 +1,17 @@
 import dbClient, { parseData } from '../../../lib/dynamodb'
 
 const getDecks = async ({ nickname }) => {
-    const { Items } = await dbClient
-        .scan({
-            TableName: 'user-decks',
-            ExpressionAttributeValues: {
-                ':username': { S: nickname }
-            },
-            // KeyConditionExpression: 'username = :username',
-            FilterExpression: 'contains (username, :username)'
-        })
-        .promise()
+    const { Items } = await dbClient.query({
+        TableName: 'user-decks',
+        IndexName: 'userIndex',
+        KeyConditionExpression: '#user = :v_user',
+        ExpressionAttributeNames: {
+            '#user': 'username'
+        },
+        ExpressionAttributeValues: {
+            ':v_user': { S: nickname }
+        }
+    }).promise()
 
     return Items.map((item) => parseData.unmarshall(item))
 }

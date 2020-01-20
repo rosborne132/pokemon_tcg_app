@@ -29,6 +29,8 @@ resources:
         AttributeDefinitions:
           - AttributeName: deckId
             AttributeType: S
+          - AttributeName: username
+            AttributeType: S
         KeySchema:
           - AttributeName: deckId
             KeyType: HASH
@@ -36,3 +38,13 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         BillingMode: PROVISIONED
+        GlobalSecondaryIndexes:
+        - IndexName: userIndex
+          KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1

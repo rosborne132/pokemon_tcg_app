@@ -1,6 +1,7 @@
 type Deck {
     username: String!
     deckId: String!
+    deckName: String!
 }
 
 type Query {
