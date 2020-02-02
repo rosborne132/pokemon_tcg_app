@@ -18,24 +18,15 @@ const App: React.FC = (): JSX.Element => {
 
     if (!data) return <div>Loading</div>
 
-    // const { getUserDecks: { name, nickname, picture } } = data
-    console.log(data)
-
     return (
         <AppLayout>
-            <h1>App Home</h1>
+            <h1>Current Decks</h1>
 
-            {/* <div>
-                <img src={picture} alt="profile" />
-                <p>
-                    <span className="fw_b">nickname: </span>
-                    {nickname}
-                </p>
-                <p>
-                    <span className="fw_b">name: </span>
-                    {name}
-                </p>
-            </div> */}
+            { data.getUserDecks.map(({ deckId, deckName }) => (
+                <div key={deckId}>
+                    <h3>{ deckName }</h3>
+                </div>
+            ))}
         </AppLayout>
     )
 }
