@@ -1,1 +1,0 @@
-{"apis":{"dynamic":{},"nonDynamic":{"/api/callback":"pages/api/callback.js","/api/login":"pages/api/login.js","/api/logout":"pages/api/logout.js","/api/me":"pages/api/me.js"}}}

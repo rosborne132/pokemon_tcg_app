@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "now": "next now",
-    "deploy": "serverless deploy",
-    "lint:src": "eslint --fix './src/**/*.{ts,tsx}'",
-    "lint:pages": "eslint --fix './pages/**/*.{ts,tsx}'",
-    "lint": "yarn run lint:src && yarn run lint:pages",
-    "build": "next build",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "build": "next build",
+    "deploy": "serverless deploy",
+    "dev": "next dev",
+    "lint:pages": "eslint --fix './pages/**/*.{ts,tsx}'",
+    "lint:src": "eslint --fix './src/**/*.{ts,tsx}'",
+    "lint": "yarn run lint:src && yarn run lint:pages",
+    "now": "next now",
+    "start": "next start"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
